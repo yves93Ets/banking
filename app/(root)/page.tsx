@@ -2,10 +2,14 @@ import HeaderBox from "@/components/HeaderBox";
 import TotalBalanceBox from "@/components/TotalBalanceBox";
 import RightSidebar from "@/components/RightSideBar";
 
-const Home = () => {
+import { getLoggedInUser } from "@/lib/actions/user.actions";
+
+const Home = async () => {
   const accountsData = [];
   const account = { transactions: [] };
-  const loggedIn = { firstName: "Yves" };
+  const loggedIn = await getLoggedInUser();
+  console.log(1111, "loggedIn", loggedIn);
+
   return (
     <section className="home">
       <div className="home-content">

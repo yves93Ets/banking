@@ -7,9 +7,9 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { createTransfer } from "@/lib/actions/dwolla.actions";
-import { createTransaction } from "@/lib/actions/transaction.actions";
-import { getBank, getBankByAccountId } from "@/lib/actions/user.actions";
+// import { createTransfer } from "@/lib/actions/dwolla.actions";
+// import { createTransaction } from "@/lib/actions/transaction.actions";
+// import { getBank, getBankByAccountId } from "@/lib/actions/user.actions";
 import { decryptId } from "@/lib/utils";
 
 import { BankDropdown } from "./BankDropdown";
@@ -54,10 +54,10 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
 
     try {
       const receiverAccountId = decryptId(data.sharableId);
-      const receiverBank = await getBankByAccountId({
-        accountId: receiverAccountId,
-      });
-      const senderBank = await getBank({ documentId: data.senderBank });
+      const receiverBank = {}; // await getBankByAccountId({
+      //   accountId: receiverAccountId,
+      // });
+      const senderBank = {}; // await getBank({ documentId: data.senderBank });
 
       const transferParams = {
         sourceFundingSourceUrl: senderBank.fundingSourceUrl,
@@ -65,7 +65,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
         amount: data.amount,
       };
       // create transfer
-      const transfer = await createTransfer(transferParams);
+      const transfer = {}; //await createTransfer(transferParams);
 
       // create transfer transaction
       if (transfer) {
@@ -79,7 +79,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
           email: data.email,
         };
 
-        const newTransaction = await createTransaction(transaction);
+        const newTransaction = {}; //await createTransaction(transaction);
 
         if (newTransaction) {
           form.reset();

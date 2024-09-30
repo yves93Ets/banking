@@ -5,8 +5,25 @@ import HeaderBox from "@/components/HeaderBox";
 import React from "react";
 
 const MyBanks = async () => {
-  const loggedIn = {}; // await getLoggedInUser();
-  const accounts = {}; //await getAccounts({ userId: loggedIn.$id  })
+  const loggedIn = { firstName: "Yves G." }; // await getLoggedInUser();
+  const accounts = {
+    data: [
+      {
+        id: "qqq",
+        name: "Yves",
+        currentBalance: 1230,
+        mask: "1225",
+        sharaebleId: "sharaebleId",
+      },
+      {
+        id: "qqq2",
+        name: "Serge",
+        currentBalance: 12300,
+        mask: "1275",
+        sharaebleId: "sharaebleId2",
+      },
+    ],
+  }; //await getAccounts({ userId: loggedIn.$id  })
 
   return (
     <section className="flex">
